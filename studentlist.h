@@ -6,15 +6,17 @@
 #include <vector>
 #include <string>
 
+using namespace std;
+
 class StudentList {
 private:
-    std::vector<Student> students;
+    vector<Student> students;
 
 public:
-    void loadFromFile(const std::string& filename);
-    void saveToFile(const std::string& filename) const;
+    void loadFromFile(const string& filename);
+    void saveToFile(const string& filename) const;
 
-    void insertStudent(IOManager& ioManager, const std::string& filename);
+    void insertStudent(IOManager& ioManager, const string& filename);
     void searchStudent(IOManager& ioManager) const;
     void setSortOption(IOManager& ioManager);
     

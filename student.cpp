@@ -35,12 +35,10 @@ string Student::getPhone() const {
 }
 
 void Student::printStudentInfo() const {
-    std::cout << name << "/" << id << "/" 
-              << birthYear << "/" << department << "/" 
-              << phone << std::endl;
+    cout << name << "/" << id << "/" << birthYear << "/" << department << "/" << phone << endl;
 }
 
 // operator== 구현 (학생 ID를 비교하는 함수)
-bool Student::operator==(const std::string& otherId) const {
+bool Student::operator==(const string& otherId) const {
     return this->id == otherId;
 }

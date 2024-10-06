@@ -6,6 +6,7 @@
 #include <unordered_set>
 #include <unordered_map>
 
+using namespace std;
 class IOManager {
 public:
     int showMainMenu() const;
@@ -13,9 +14,9 @@ public:
     int showSortMenu() const;
 
     Student getStudentInfo() const;
-    std::string getSearchInput() const;
+    string getSearchInput() const;
 
-    void displayMessage(const std::string& message) const;
+    void displayMessage(const string& message) const;
 };
 
 #endif

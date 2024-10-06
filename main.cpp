@@ -28,10 +28,9 @@ int main(int argc, char *argv[]) {
 
     studentList.loadFromFile(filename);  // 파일에서 학생 정보 로드
 
-    int choice;
-    choice = ioManager.showMainMenu();
-
     while(true){
+        int choice = ioManager.showMainMenu();
+
         if (choice == 1){
             studentList.insertStudent(ioManager, filename);
         } else if (choice == 2){
@@ -40,6 +39,7 @@ int main(int argc, char *argv[]) {
             studentList.setSortOption(ioManager);
         } else if (choice == 4){
             cout << "End" << endl;
+            break;
         } else {
             cerr << "Wrong input. Try agin." << endl;
         }

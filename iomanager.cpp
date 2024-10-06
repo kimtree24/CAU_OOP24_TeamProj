@@ -48,6 +48,9 @@ Student IOManager::getStudentInfo() const {
     cin.ignore();
     getline(cin, name);
 
+    cout << "Id? ";
+    getline(cin, id);
+
     cout << "Birth Year (4 digits)? ";
     getline(cin, birthYear);
 

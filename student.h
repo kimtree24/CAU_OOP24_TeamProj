@@ -27,7 +27,7 @@ public:
     void printStudentInfo() const;
 
     bool operator<(const Student& other) const;
-    bool operator==(const std::string& otherId) const;
+    bool operator==(const string& otherId) const;
     bool operator==(const Student& other) const;
 };
 
