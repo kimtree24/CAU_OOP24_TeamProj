@@ -41,7 +41,7 @@ int IOManager::showSortMenu() {
     return choice;
 }
 
-Student IOManager::getStudentInfo() {
+Student IOManager::getStudentInfo(){
     string name, id, birthYear, department, phone;
 
     cout << "Name? ";
@@ -70,6 +70,6 @@ string IOManager::getSearchInput() {
     return input;
 }
 
-void IOManager::displayMessage(string &message) {
-    cout << message << endl;
-}
+// void IOManager::displayMessage(string& message) {
+//     cout << message << endl;
+// }

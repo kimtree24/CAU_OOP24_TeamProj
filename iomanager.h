@@ -16,7 +16,7 @@ public:
     Student getStudentInfo();
     string getSearchInput();
 
-    void displayMessage(string &message);
+    //void displayMessage(string& message);
 };
 
 #endif

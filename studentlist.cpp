@@ -79,14 +79,16 @@ void StudentList::insertStudent(IOManager &ioManager,string &filename) {
     for (size_t i = 0; i < students.size(); ++i) {
         Student &student = students[i];
         if (student.getId() == newStudent.getId()) {
-            ioManager.displayMessage("Error: already exist");
+            cout << "Error: already exist" << endl;
+            //ioManager.displayMessage("Error: already exist");
             return;
         }
     }
 
     students.push_back(newStudent);
     saveToFile(filename);  // 삽입 후 파일에 저장
-    ioManager.displayMessage("학생 정보가 삽입되었습니다.");
+    cout << "insert complete" << endl;
+    //ioManager.displayMessage("학생 정보가 삽입되었습니다.");
 }
 
 // 학생을 검색하는 함수
@@ -142,17 +144,20 @@ void StudentList::searchStudent(IOManager &ioManager) {
         }
     } else if (searchOption == 6) {
         if (students.empty()) {
-            ioManager.displayMessage("No students.");
+            cout << "No students." << endl;
+            //ioManager.displayMessage("No students.");
         } else {
             printAllStudents();
             found = true;
         }
     } else {
-        ioManager.displayMessage("Wrong Input.");
+        cout << "Wrong Input." << endl;
+        //ioManager.displayMessage("Wrong Input.");
     }
 
     if (!found) {
-        ioManager.displayMessage("Nothing"); // 검색 결과가 없을 때 출력
+        cout << "Nothing" << endl;
+        //ioManager.displayMessage("Nothing"); // 검색 결과가 없을 때 출력
     }
 }
 
@@ -173,10 +178,12 @@ void StudentList::setSortOption(IOManager &ioManager) {
             sort(students.begin(), students.end(), compareByDepartment);
             break;
         default:
-            ioManager.displayMessage("Wrong Input");
+            cout << "Wrong Input" << endl;
+            //ioManager.displayMessage("Wrong Input");
             return;
     }
-    ioManager.displayMessage("Sorting option has been set.");
+    cout << "Sorting option has been set." << endl;
+    //ioManager.displayMessage("Sorting option has been set.");
 }
 
 // 모든 학생 정보를 출력하는 함수
