@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int IOManager::showMainMenu() const {
+int IOManager::showMainMenu() {
     int choice;
     cout << "1. Insertion\n";
     cout << "2. Search\n";
@@ -15,7 +15,7 @@ int IOManager::showMainMenu() const {
     return choice;
 }
 
-int IOManager::showSearchMenu() const {
+int IOManager::showSearchMenu() {
     int choice;
     cout << "\n- Search -\n";
     cout << "1. Search by Name\n";
@@ -29,7 +29,7 @@ int IOManager::showSearchMenu() const {
     return choice;
 }
 
-int IOManager::showSortMenu() const {
+int IOManager::showSortMenu() {
     int choice;
     cout << "\n- Sorting Option -\n";
     cout << "1. Sort by Name\n";
@@ -41,14 +41,14 @@ int IOManager::showSortMenu() const {
     return choice;
 }
 
-Student IOManager::getStudentInfo() const {
+Student IOManager::getStudentInfo() {
     string name, id, birthYear, department, phone;
 
     cout << "Name? ";
     cin.ignore();
     getline(cin, name);
 
-    cout << "Id? ";
+    cout << "Student ID (10 digits) ? ";
     getline(cin, id);
 
     cout << "Birth Year (4 digits)? ";
@@ -63,13 +63,13 @@ Student IOManager::getStudentInfo() const {
     return Student(name, id, birthYear, department, phone);
 }
 
-string IOManager::getSearchInput() const {
+string IOManager::getSearchInput() {
     string input;
     cin.ignore();
     getline(cin, input);
     return input;
 }
 
-void IOManager::displayMessage(const string& message) const {
+void IOManager::displayMessage(string &message) {
     cout << message << endl;
 }

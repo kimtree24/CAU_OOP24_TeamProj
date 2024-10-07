@@ -6,7 +6,7 @@ using namespace std;
 
 Student::Student() {}
 
-Student::Student(const string &name, const string &id, const string &birthYear, const string &department, const string &phone) {
+Student::Student(string &name, string &id, string &birthYear, string &department, string &phone) {
     this-> name = name;
     this-> id = id;
     this-> birthYear = birthYear;
@@ -14,31 +14,26 @@ Student::Student(const string &name, const string &id, const string &birthYear, 
     this-> phone = phone;
 }
 
-string Student::getName() const {
+string Student::getName() {
     return name;
 }
 
-string Student::getId() const {
+string Student::getId() {
     return id;
 }
 
-string Student::getBirthYear() const {
+string Student::getBirthYear() {
     return birthYear;
 }
 
-string Student::getDepartment() const {
+string Student::getDepartment() {
     return department;
 }
 
-string Student::getPhone() const {
+string Student::getPhone() {
     return phone;
 }
 
-void Student::printStudentInfo() const {
+void Student::printStudentInfo() {
     cout << name << "/" << id << "/" << birthYear << "/" << department << "/" << phone << endl;
-}
-
-// operator== 구현 (학생 ID를 비교하는 함수)
-bool Student::operator==(const string& otherId) const {
-    return this->id == otherId;
 }

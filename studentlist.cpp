@@ -7,27 +7,27 @@
 using namespace std;
 
 // 학생 이름을 기준으로 정렬하는 함수
-bool compareByName(const Student& a, const Student& b) {
+bool compareByName(Student &a, Student &b) {
     return a.getName() < b.getName();
 }
 
 // 학생 ID를 기준으로 정렬하는 함수
-bool compareById(const Student& a, const Student& b) {
+bool compareById(Student &a, Student &b) {
     return a.getId() < b.getId();
 }
 
 // 출생 연도를 기준으로 정렬하는 함수
-bool compareByBirthYear(const Student& a, const Student& b) {
+bool compareByBirthYear(Student &a, Student &b) {
     return a.getBirthYear() < b.getBirthYear();
 }
 
 // 학과를 기준으로 정렬하는 함수
-bool compareByDepartment(const Student& a, const Student& b) {
+bool compareByDepartment(Student &a, Student &b) {
     return a.getDepartment() < b.getDepartment();
 }
 
 // 파일에서 학생 목록을 불러오는 함수
-void StudentList::loadFromFile(const string& filename) {
+void StudentList::loadFromFile(string &filename) {
     ifstream infile(filename);
     if (!infile) {
         cerr << "Error: Cannot open file " << filename << endl;
@@ -53,15 +53,15 @@ void StudentList::loadFromFile(const string& filename) {
 }
 
 // 파일에 학생 목록을 저장하는 함수
-void StudentList::saveToFile(const string& filename) const {
+void StudentList::saveToFile(string &filename) {
     ofstream outfile(filename);
     if (!outfile) {
         cerr << "Error: Cannot open file " << filename << endl;
         return;
     }
 
-    for (vector<Student>::const_iterator it = students.begin(); it != students.end(); ++it) {
-        const Student& student = *it;
+    for (size_t i = 0; i < students.size(); ++i) {
+        Student &student = students[i];
         outfile << student.getName() << "/" 
                 << student.getId() << "/" 
                 << student.getBirthYear() << "/" 
@@ -72,13 +72,13 @@ void StudentList::saveToFile(const string& filename) const {
 }
 
 // 학생을 삽입하는 함수
-void StudentList::insertStudent(IOManager& ioManager, const string& filename) {
+void StudentList::insertStudent(IOManager &ioManager,string &filename) {
     Student newStudent = ioManager.getStudentInfo();
 
     // 중복된 학생 ID 체크
-    for (vector<Student>::const_iterator it = students.begin(); it != students.end(); ++it) {
-        const Student& student = *it;
-        if (student == newStudent.getId()) {
+    for (size_t i = 0; i < students.size(); ++i) {
+        Student &student = students[i];
+        if (student.getId() == newStudent.getId()) {
             ioManager.displayMessage("Error: already exist");
             return;
         }
@@ -90,7 +90,7 @@ void StudentList::insertStudent(IOManager& ioManager, const string& filename) {
 }
 
 // 학생을 검색하는 함수
-void StudentList::searchStudent(IOManager &ioManager) const {
+void StudentList::searchStudent(IOManager &ioManager) {
     int searchOption = ioManager.showSearchMenu();
     string searchInput;
     bool found = false; // 결과를 찾았는지 확인하기 위한 플래그
@@ -101,7 +101,7 @@ void StudentList::searchStudent(IOManager &ioManager) const {
 
     if (searchOption == 1) {
         for (size_t i = 0; i < students.size(); ++i) {
-            const Student& student = students[i];
+            Student &student = students[i];
             if (student.getName() == searchInput) {
                 student.printStudentInfo();
                 found = true;
@@ -109,7 +109,7 @@ void StudentList::searchStudent(IOManager &ioManager) const {
         }
     } else if (searchOption == 2) {
         for (size_t i = 0; i < students.size(); ++i) {
-            const Student& student = students[i];
+            Student &student = students[i];
             if (student.getId() == searchInput) {
                 student.printStudentInfo();
                 found = true;
@@ -117,7 +117,7 @@ void StudentList::searchStudent(IOManager &ioManager) const {
         }
     } else if (searchOption == 3) {
         for (size_t i = 0; i < students.size(); ++i) {
-            const Student& student = students[i];
+            Student &student = students[i];
             string AdmissionYear = student.getId().substr(0, 4);
             if (AdmissionYear == searchInput) {
                 student.printStudentInfo();
@@ -126,7 +126,7 @@ void StudentList::searchStudent(IOManager &ioManager) const {
         }
     } else if (searchOption == 4) {
         for (size_t i = 0; i < students.size(); ++i) {
-            const Student& student = students[i];
+            Student &student = students[i];
             if (student.getBirthYear() == searchInput) {
                 student.printStudentInfo();
                 found = true;
@@ -134,7 +134,7 @@ void StudentList::searchStudent(IOManager &ioManager) const {
         }
     } else if (searchOption == 5) {
         for (size_t i = 0; i < students.size(); ++i) {
-            const Student& student = students[i];
+            Student &student = students[i];
             if (student.getDepartment() == searchInput) {
                 student.printStudentInfo();
                 found = true;
@@ -142,7 +142,7 @@ void StudentList::searchStudent(IOManager &ioManager) const {
         }
     } else if (searchOption == 6) {
         if (students.empty()) {
-            ioManager.displayMessage("No students found.");
+            ioManager.displayMessage("No students.");
         } else {
             printAllStudents();
             found = true;
@@ -157,7 +157,7 @@ void StudentList::searchStudent(IOManager &ioManager) const {
 }
 
 // 정렬 옵션을 설정하는 함수
-void StudentList::setSortOption(IOManager& ioManager) {
+void StudentList::setSortOption(IOManager &ioManager) {
     int sortOption = ioManager.showSortMenu();
     switch (sortOption) {
         case 1:
@@ -180,7 +180,7 @@ void StudentList::setSortOption(IOManager& ioManager) {
 }
 
 // 모든 학생 정보를 출력하는 함수
-void StudentList::printAllStudents() const {
+void StudentList::printAllStudents() {
     for (size_t i = 0; i < students.size(); ++i) {
         students[i].printStudentInfo();
     }

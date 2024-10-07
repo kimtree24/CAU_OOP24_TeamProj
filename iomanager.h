@@ -9,14 +9,14 @@
 using namespace std;
 class IOManager {
 public:
-    int showMainMenu() const;
-    int showSearchMenu() const;
-    int showSortMenu() const;
+    int showMainMenu();
+    int showSearchMenu();
+    int showSortMenu();
 
-    Student getStudentInfo() const;
-    string getSearchInput() const;
+    Student getStudentInfo();
+    string getSearchInput();
 
-    void displayMessage(const string& message) const;
+    void displayMessage(string &message);
 };
 
 #endif

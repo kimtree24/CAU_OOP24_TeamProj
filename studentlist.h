@@ -13,14 +13,14 @@ private:
     vector<Student> students;
 
 public:
-    void loadFromFile(const string& filename);
-    void saveToFile(const string& filename) const;
+    void loadFromFile(string& filename);
+    void saveToFile(string& filename);
 
-    void insertStudent(IOManager& ioManager, const string& filename);
-    void searchStudent(IOManager& ioManager) const;
+    void insertStudent(IOManager& ioManager, string& filename);
+    void searchStudent(IOManager& ioManager);
     void setSortOption(IOManager& ioManager);
     
-    void printAllStudents() const;
+    void printAllStudents();
 };
 
 #endif
