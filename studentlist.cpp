@@ -3,6 +3,7 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -97,11 +98,17 @@ void StudentList::searchStudent(IOManager &ioManager) {
     string searchInput;
     bool found = false; // 결과를 찾았는지 확인하기 위한 플래그
 
-    if (searchOption != 6) {
-        searchInput = ioManager.getSearchInput();
-    }
-
     if (searchOption == 1) {
+        cout << "Input name" << endl;
+        searchInput = ioManager.getSearchInput();
+        cout << left << setw(15) << "Name" 
+         << setw(15) << "StudentID" 
+         << setw(30) << "Dept" 
+         << setw(15) << "Birth Year" 
+         << setw(12) << "Tel"
+         << endl;
+
+    cout << string(90, '-') << endl;
         for (size_t i = 0; i < students.size(); ++i) {
             Student &student = students[i];
             if (student.getName() == searchInput) {
@@ -110,6 +117,16 @@ void StudentList::searchStudent(IOManager &ioManager) {
             }
         }
     } else if (searchOption == 2) {
+        cout << "Input Student ID" << endl;
+        searchInput = ioManager.getSearchInput();
+        cout << left << setw(15) << "Name" 
+         << setw(15) << "StudentID" 
+         << setw(30) << "Dept" 
+         << setw(15) << "Birth Year" 
+         << setw(12) << "Tel"
+         << endl;
+
+    cout << string(90, '-') << endl;
         for (size_t i = 0; i < students.size(); ++i) {
             Student &student = students[i];
             if (student.getId() == searchInput) {
@@ -118,6 +135,16 @@ void StudentList::searchStudent(IOManager &ioManager) {
             }
         }
     } else if (searchOption == 3) {
+        cout << "Input AdmissionYear" << endl;
+        searchInput = ioManager.getSearchInput();
+        cout << left << setw(15) << "Name" 
+         << setw(15) << "StudentID" 
+         << setw(30) << "Dept" 
+         << setw(15) << "Birth Year" 
+         << setw(12) << "Tel"
+         << endl;
+
+    cout << string(90, '-') << endl;
         for (size_t i = 0; i < students.size(); ++i) {
             Student &student = students[i];
             string AdmissionYear = student.getId().substr(0, 4);
@@ -127,6 +154,16 @@ void StudentList::searchStudent(IOManager &ioManager) {
             }
         }
     } else if (searchOption == 4) {
+        cout << "Input Birth Year" << endl;
+        searchInput = ioManager.getSearchInput();
+        cout << left << setw(15) << "Name" 
+         << setw(15) << "StudentID" 
+         << setw(30) << "Dept" 
+         << setw(15) << "Birth Year" 
+         << setw(12) << "Tel"
+         << endl;
+
+    cout << string(90, '-') << endl;
         for (size_t i = 0; i < students.size(); ++i) {
             Student &student = students[i];
             if (student.getBirthYear() == searchInput) {
@@ -135,6 +172,16 @@ void StudentList::searchStudent(IOManager &ioManager) {
             }
         }
     } else if (searchOption == 5) {
+        cout << "Input Department name keyword" << endl;
+        searchInput = ioManager.getSearchInput();
+        cout << left << setw(15) << "Name" 
+         << setw(15) << "StudentID" 
+         << setw(30) << "Dept" 
+         << setw(15) << "Birth Year" 
+         << setw(12) << "Tel"
+         << endl;
+
+    cout << string(90, '-') << endl;
         for (size_t i = 0; i < students.size(); ++i) {
             Student &student = students[i];
             if (student.getDepartment() == searchInput) {
@@ -188,6 +235,15 @@ void StudentList::setSortOption(IOManager &ioManager) {
 
 // 모든 학생 정보를 출력하는 함수
 void StudentList::printAllStudents() {
+    cout << left << setw(15) << "Name" 
+         << setw(15) << "StudentID" 
+         << setw(30) << "Dept" 
+         << setw(15) << "Birth Year" 
+         << setw(12) << "Tel"
+         << endl;
+
+    cout << string(90, '-') << endl;
+
     for (size_t i = 0; i < students.size(); ++i) {
         students[i].printStudentInfo();
     }

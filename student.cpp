@@ -35,5 +35,10 @@ string Student::getPhone() {
 }
 
 void Student::printStudentInfo() {
-    cout << name << "/" << id << "/" << birthYear << "/" << department << "/" << phone << endl;
+    cout << left << setw(15) << name 
+         << setw(15) << id 
+         << setw(30) << department 
+         << setw(15) << birthYear 
+         << setw(12) << phone 
+         << endl;
 }
