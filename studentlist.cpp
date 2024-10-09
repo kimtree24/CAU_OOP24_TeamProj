@@ -1,4 +1,4 @@
-#include "studentlist.h"
+ #include "studentlist.h"
 #include <algorithm>
 #include <fstream>
 #include <iostream>
@@ -246,5 +246,58 @@ void StudentList::printAllStudents() {
 
     for (size_t i = 0; i < students.size(); ++i) {
         students[i].printStudentInfo();
+    }
+}
+
+
+// 추가
+// 학생 정보 수정하는 함수
+void StudentList::modifyStudent(IOManager& ioManager, string& filename) {
+    cout << "Student ID: ";
+    string studentId = ioManager.getSearchInput();
+
+    int idx = 0;
+    // 학생 검색
+    for (size_t i = 0; i < students.size(); ++i) {
+        Student& student = students[i];
+        idx += 1;
+        if (student.getId() == studentId) {
+            cout << "Find student. Enter New Info" << endl;
+            // 이름
+            cout << "Name: ";
+            string newName;
+            getline(cin, newName);
+            if (!newName.empty()) {
+                student.setName(newName);
+            }
+            // 생년
+            cout << "Birth Year (4 digits): ";
+            string newBirthYear;
+            getline(cin, newBirthYear);
+            if (!newBirthYear.empty()) {
+                student.setBirthYear(newBirthYear);
+            }
+            // 학과
+            cout << "Department: ";
+            string newDepartment;
+            getline(cin, newDepartment);
+            if (!newDepartment.empty()) {
+                student.setDepartment(newDepartment);
+            }
+            // 전화번호
+            cout << "Tel: ";
+            string newPhone;
+            getline(cin, newPhone);
+            if (!newPhone.empty()) {
+                student.setPhone(newPhone);
+            }
+            
+            cout << "Updated successfully." << endl;
+            saveToFile(filename);
+            break;
+        }
+        else if(idx == students.size()) {
+            cout << "Error: Student ID not found." << endl;
+        }
     }
 }

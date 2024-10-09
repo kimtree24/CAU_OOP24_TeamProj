@@ -24,6 +24,12 @@ public:
     string getPhone();
 
     void printStudentInfo();
+
+    // 추가
+    void setName(const string& newName);
+    void setBirthYear(const string& newBirthday);
+    void setDepartment(const string& newDepartment);
+    void setPhone(const string& newPhone);
 };
 
 #endif

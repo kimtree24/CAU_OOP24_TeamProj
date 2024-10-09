@@ -19,6 +19,7 @@ public:
     void insertStudent(IOManager& ioManager, string& filename);
     void searchStudent(IOManager& ioManager);
     void setSortOption(IOManager& ioManager);
+    void modifyStudent(IOManager& ioManager, string& filename); //추가
     
     void printAllStudents();
 };

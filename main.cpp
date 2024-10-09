@@ -40,7 +40,9 @@ int main(int argc, char *argv[]) {
         } else if (choice == 4){
             cout << "End" << endl;
             break;
-        } else {
+        } else if (choice == 5) {
+            studentList.modifyStudent(ioManager, filename); // 추가
+        }else {
             cerr << "Wrong input. Try agin." << endl;
         }
     }

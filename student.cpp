@@ -42,3 +42,21 @@ void Student::printStudentInfo() {
          << setw(12) << phone 
          << endl;
 }
+
+
+// 추가
+void Student::setName(const string& newName) {
+    this->name = newName;
+}
+
+void Student::setBirthYear(const string& newBirtYear) {
+    this->birthYear = newBirtYear;
+}
+
+void Student::setDepartment(const string& newDepartment) {
+    this->department = newDepartment;
+}
+
+void Student::setPhone(const string& newPhone) {
+    this->phone = newPhone;
+}

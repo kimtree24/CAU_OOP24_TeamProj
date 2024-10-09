@@ -10,6 +10,7 @@ int IOManager::showMainMenu() {
     cout << "2. Search\n";
     cout << "3. Sorting Option\n";
     cout << "4. Exit\n";
+    cout << "5. Modify\n"; // 추가
     cout << "> ";
     cin >> choice;
     return choice;
